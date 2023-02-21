@@ -122,3 +122,22 @@ La respuesta será:
 }<br>
 }<br>
 </span>
+
+Dependiendo de la versión de Actuator, es posible que el endpoint /info no esté habilitado por defecto para leer las variables cargadas desde el archivo application.properties. Para habilitarlo debemos agregar lo siguiente en dicho archivo:
+
+<span style=color:orange>management.info.env.enabled = true </span>
+
+
+### ¿Cómo agregamos actuator a nuestro proyecto?
+Para hacerlo debemos utilizar **Maven**:
+
+<div style=color:crimson>
+< dependency><br></div>
+<span style=color:crimson> < groupid></span>org.springframework.boot /groupid><br>
+<span style=color:crimson>< artifactid></span>spring-boot-starter-actuator <span style=color:crimson>< /artifactid> </span> <br>
+<span style=color:crimson>< /dependency> </span>
+
+Posteriormente, actualizamos las dependencias, ejecutamos el proyecto y ya tendremos los endpoints listos para consumir.
+
+### Conclusión
+Eureka es una solución para el registro y descubrimiento de servicios que nos proporciona características —en tiempo de ejecución— sólidas, resistentes y tolerante a fallas. Con Spring Cloud, se vuelve fácil configurar un servidor Eureka y adaptar los microservicios para que funcionen como clientes de Eureka y se puedan registrar. Esto nos permite dar un seguimiento de las instancias disponibles. Más adelante, vamos a ver cómo podemos escalar un microservicio y enviarles peticiones HTTP a sus instancias pasando por un balanceador de carga que nos ayudará a redireccionarlas a la instancia con menos carga.
