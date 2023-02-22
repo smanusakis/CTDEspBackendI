@@ -1,5 +1,16 @@
 TENER EN CUENTA:
 
+Eureka Server:
+
+en Application.properties:
+
+server.port = 8761 <br>
+eureka.client.register-with-eureka = false<br>
+eureka.client.fetch-registry = false<br>
+
+y en main agregar la anotación:<span style=color:yellow> @EnableEurekaServer </span>
+
+
 Eureka Client:
 cuando configuramos el proyecto hay que agregar en el app. properties:
 
