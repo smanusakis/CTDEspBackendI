@@ -49,4 +49,24 @@ MEDIATE ALGORITMOS
 
 - Round-robin: selecciona todas las instancias en el mismo orden 
   - problemas: si nos interesa conservar el estado o datos del cliente, al estar siempre redirigiendo a instancias secuenciales, puede tener problemas de consistencia
-- 
+- En estos casos se puede usar el BALANCEO POR AFINIDAD** donde voy a redirigir las peticiones de un mismo cliente al mismo servidor
+
+El SPRING CLOUD LOAD BALANCER es una fuñncionalidad de spring cloud que es balanceador del lado del cliente que se integra a Eureka para obtener la info de los microsorevivios permitiendo mejorar el rendimiento por distribución de carga de trabajo.
+
+### ¿Qué es el balanceo de carga?
+Según lo visto, podemos mencionar que el balanceo de carga es el proceso de distribuir el tráfico a través de diferentes instancias de la misma aplicación.
+
+Para crear un sistema tolerante a fallas es común ejecutar múltiples instancias de cada aplicación. Por lo tanto, cuando un servicio quiera comunicarse con otro que tiene varias instancias en ejecución, necesitaremos de un mecanismo que nos ayude a elegir la instancia más adecuada para recibir la petición
+
+### ¿Cómo funcionan los balanceadores de carga?
+Los balanceadores de carga utilizan diferentes algoritmos para elegir la instancia más adecuada. Existen muchos algoritmos, algunos de los más utilizados por los balanceadores de carga son:
+- ROUND ROBIN Por cada petición se elige una instancia deferente siemrpe en el mismo orden
+- LEAST CONNECTIONS Se elige la instancia con menos conexiones concurrentes
+- WEIGHTED METRIC Se utiliza una métrica para decidir a qué instancia enviar la petición. Por ejemplo el uso de CPU o de memoria
+- RANDOM Se elige una instancia al azahar
+- STICKY SESSION Mediante una cookie se relaciona a un usuario con un servidor. de esta manera, siempre será el mismo servidor el que procese la petición del usuario. Es útil cuando tenemos que manejar sesiones.
+
+### Conclusión
+Para cerrar, podemos mencionar que utilizar un balanceador de carga es una parte esencial a la hora de construir sistemas tolerantes a fallos. Usando Spring Cloud Load Balancer podemos elegir diferentes técnicas de balanceo para distribuir la carga a través de las diferentes instancias.
+
+Para comunicar servicios REST, siempre necesitaremos de un cliente REST. Utilizar Feign —además de permitirnos comunicarnos— nos ofrece las ventajas de integrarse con Eureka para hacer completamente transparente la comunicación al desacoplarnos de una dirección física.
